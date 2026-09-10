@@ -1,0 +1,11 @@
+name: Hello World 
+on: workflow_dispatch
+
+jobs:
+  _hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print a Hello message
+        env:
+          NAME: "Alireza Moslemi"
+        run: echo "Hello $NAME , welcome to github actions for your career!"
