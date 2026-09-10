@@ -11,3 +11,4 @@ jobs:
         run: |
           echo "Hello $NAME , welcome to github actions for your career!"
           echo "This is line two for testing run two commands in a run key"
+          echo "This change has added via linux and VScode"
