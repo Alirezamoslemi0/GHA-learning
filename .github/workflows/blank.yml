@@ -2,13 +2,21 @@ name: Hello World
 on: workflow_dispatch
 
 jobs:
-  _hello:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: print a Hello message
-        env:
-          NAME: "Alireza Moslemi"
-        run: |
-          echo "Hello $NAME , welcome to github actions for your career!"
-          echo "This is line two for testing run two commands in a run key"
-          echo "This change has added via linux and VScode"
+      - name: Build Step
+        run: echo "A demo build"
+  
+  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Phase
+        run: echo "Running test cases"
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy the app
+        run: echo "Deploying the app"
