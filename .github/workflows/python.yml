@@ -1,0 +1,9 @@
+name: Run python code
+on: push
+
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - run: python3 Hello_world.py
+      
