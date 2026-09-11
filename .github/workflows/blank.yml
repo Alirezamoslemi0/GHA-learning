@@ -2,7 +2,7 @@ name: Hello World
 on:
   push:
     paths:
-      - 'blank.yml'
+      - '.github/workflows/blank.yml'
     
 
 jobs:
