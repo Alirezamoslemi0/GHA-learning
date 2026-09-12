@@ -20,4 +20,4 @@ jobs:
       - name: print github variables
         run: |
           echo "===The github variables are==="
-          echo "${{ toJson(github) }}"
+          echo "${{ toJson(github) }}" | grep -w github_actor
