@@ -11,10 +11,15 @@ on:
           - dev
           - build
           - prod
+      artifact_tag:
+        required: true
+        description: Plese Enter the artifact tag
+        type: string
 jobs:
   print-environment:
     runs-on: ubuntu-latest
     steps:
       - name: step1
-        run: echo "The environmet that has chosen is ${{ inputs.environment }}"
-    
+        run: |
+          echo "The environmet that has chosen is ${{ inputs.environment }}"
+          echo "The tag is ${{ inputs.artifact_tag }}"
