@@ -20,4 +20,9 @@ jobs:
       - name: print github variables
         run: |
           echo "===The github variables are==="
-          echo "${{ toJson(github) }}" | grep -w actor
+          echo "${{ toJson(github) }}" 
+  env_print:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print environment variables
+        run: echo "${{ toJson(env) }}"
