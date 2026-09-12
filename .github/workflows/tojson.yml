@@ -25,4 +25,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print environment variables
-        run: echo "${{ toJson(env) }}"
+        run: echo "$GITHUB_SHA"
