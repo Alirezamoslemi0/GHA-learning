@@ -1,0 +1,23 @@
+name: Checking toJson function
+on: 
+  workflow_dispatch:
+    inputs:
+      author_love:
+        description: 'Please Enter your lover name'
+        required: true
+        type: string
+jobs:
+  input_print:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print input variables
+        run: |
+          echo "===The input variables are==="
+          echo "${{ toJson(inputs) }}"
+  github_print:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print github variables
+        run: |
+          echo "===The github variables are==="
+          echo "${{ toJson(github) }}"
