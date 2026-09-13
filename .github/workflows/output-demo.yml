@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: get build ID
         id: step1
-        run: echo " build_id="build-845" >> $GITHUB_OUTPUT "
+        run: echo " build_id="build-845" " >> $GITHUB_OUTPUT 
   notify:
     runs-on: ubuntu-latest
     needs: prepare
