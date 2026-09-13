@@ -1,0 +1,17 @@
+name: If demo config
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: main change
+        if: github.ref == 'refs/heads/main'
+        run: echo "The main branch has changed bro !"
+      - name: develop change
+        if: github.ref == 'ref/heads/develop'
+        run: echo "The develop branch has changed bro !"
