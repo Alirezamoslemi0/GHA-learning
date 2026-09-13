@@ -1,0 +1,19 @@
+name: High level if example
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  pull_request_ci:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: print pull request
+        run: echo "The event was pull-request"
+  push_ci:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: print push 
+        run: echo "The event was push "
