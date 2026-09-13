@@ -1,0 +1,13 @@
+name: output learning
+
+on: workflow_dispatch
+
+jobs:
+  print-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: version assign
+        id: step1
+        run: echo "version="22.2.1"" >> $GITHUB_OUTPUT
+      - name: print version
+        run: echo "The version is ${{ steps.step1.outputs.version }} "
