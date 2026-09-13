@@ -6,7 +6,7 @@ jobs:
   prepare:
     runs-on: ubuntu-latest
     outputs:
-      prepare_output: $ {{ steps.step1.outputs.build_id }} 
+      prepare_output: ${{ steps.step1.outputs.build_id }} 
     steps:
       - name: get build ID
         id: step1
