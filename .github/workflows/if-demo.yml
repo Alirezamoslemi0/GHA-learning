@@ -1,17 +1,13 @@
 name: If demo config
 
-on:
-  push:
-    branches:
-      - main
-      - develop
+on: push
 jobs:
   demo:
     runs-on: ubuntu-latest
     steps:
-      - name: main change
-        if: github.ref == 'refs/heads/main'
-        run: echo "The main branch has changed bro !"
+      - name: Ali print
+        if: github.actor == 'Ali'
+        run: echo "The main branch has changed by ${{ github.actor }} !"
       - name: develop change
-        if: github.ref == 'ref/heads/develop'
-        run: echo "The develop branch has changed bro !"
+        if: github.actor == 'Alirezamoslemi0'
+        run: echo "The main branch has changed by ${{ github.actor }} !"
