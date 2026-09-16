@@ -1,11 +1,16 @@
 name: Reusable Workflow
 on:
-    workflow_call
+    workflow_call:
+        inputs:
+            user-name:
+                description: Please Enter the name of the user.
+                default: Arshia
+                type: string
+                required: true
 
 jobs:
     greeting:
         runs-on: ubuntu-latest
         steps:
             - name: Greeting Step
-              run: echo "Welcome to reusable workflow"
-
+              run: echo "Welcome to reusable workflow ${{ inputs.user-name }}"

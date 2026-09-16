@@ -4,3 +4,5 @@ on: push
 jobs:
   call-greeting:
     uses: ./.github/workflows/reusable.yml
+    with:
+      user-name: "Alireza Moslemi"
