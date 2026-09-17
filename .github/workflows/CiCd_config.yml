@@ -1,0 +1,23 @@
+name: Test pytest action
+
+on: workflow_dispatch
+
+jobs:
+  get_test_result:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v7
+
+      - name: Setup python 
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pytest
+
+      - name: Run tests with pytest
+        run: |
+          pytest -v
