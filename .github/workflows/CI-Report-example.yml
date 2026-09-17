@@ -1,0 +1,13 @@
+name: CI Report Example
+
+on: workflow_dispatch
+
+jobs:
+  Collect-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: report
+        run: |
+          echo "This is a summary of our job" >> GITHUB_STEP_SUMMARY
+          echo "" >> GITHUB_STEP_SUMMARY
+          echo "And this is the end" >> GITHUB_STEP_SUMMARY
