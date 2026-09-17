@@ -3,11 +3,17 @@ name: CI Report Example
 on: workflow_dispatch
 
 jobs:
-  Collect-report:
+  Running_python_code:
     runs-on: ubuntu-latest
+
     steps:
-      - name: report
-        run: |
-          echo "This is a summary of our job" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "And this is the end" >> $GITHUB_STEP_SUMMARY
+      - name: Checkout the code
+        uses: actions/checkout@v7
+      
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      
+      - name: Rnt the code
+        run: python sum-code.py
