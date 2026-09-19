@@ -1,0 +1,32 @@
+name: Test artifact actions
+on: workflow_dispatch
+
+jobs:
+  create-upload-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the codes
+        uses: actions/checkout@v7
+        with:
+          sparse-checkout: artifact-project
+          sparse-checkout-cone-mode: false
+    
+      - name: Build the image
+        uses: docker/build-push-action@v7
+        with:
+          push: false
+          tags: my-image:latest
+          context: ./artifact-project
+        
+      - name: Run the docker
+        run: |
+          docker run --name test \
+          -p 1000:5000 \
+          -d \
+          my-image:latest 
+      - name: test operation
+        run: |
+          sleep 10
+          curl http://localhost:1000/ 
+          curl http://localhost:1000/health 
+        
