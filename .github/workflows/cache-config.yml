@@ -24,6 +24,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r cache-project/requirements.txt
   using-cache:
+    needs: caching
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the Code
