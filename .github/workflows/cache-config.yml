@@ -1,0 +1,43 @@
+name: Cache action config 
+on: workflow_dispatch
+
+jobs:
+  caching:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v7
+
+      - name: Cache the requirements
+        id: cache-primes
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('cache-project/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Print the output
+        run: |
+          echo "The cache hit varibale is ${{ steps.cache-primes.outputs.cache-hit }}"
+      
+      - name: Install dependencies
+        run: pip install -r cache-project/requirements.txt
+  using-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the Code
+        uses: actions/checkout@v7
+    
+      - name: Using cache
+        id: cache-using
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('cache-project/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      - name: Print the state of action
+        run: |
+          echo "The cache hit variable is ${{ steps.cache-using.outputs.cache-hit }}"
+
