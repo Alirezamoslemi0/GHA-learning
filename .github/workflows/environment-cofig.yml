@@ -60,8 +60,8 @@ jobs:
 
       - name: print status
         run: |
-          curl https://localhost:1200/
-          curl https://localhost:1200/health
+          curl http://localhost:1200/
+          curl http://localhost:1200/health
 
       - name: Print Environment variables
         run: |
