@@ -1,4 +1,4 @@
-name: Environment testing
+name: Environment  testing
 on: push
 jobs:
   build-push:
