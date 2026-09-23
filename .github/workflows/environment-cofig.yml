@@ -60,6 +60,7 @@ jobs:
 
       - name: print status
         run: |
+          sleep 10
           curl http://localhost:1200/
           curl http://localhost:1200/health
 
