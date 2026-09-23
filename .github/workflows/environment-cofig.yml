@@ -1,7 +1,5 @@
 name: Environment testing
-on:
-  workflow_dispatch: 
-
+on: push
 jobs:
   build-push:
     name: Build and push dockerimage
